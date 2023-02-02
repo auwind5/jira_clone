@@ -4,7 +4,7 @@ import createAccount from 'database/createGuestAccount';
 
 export const createGuestAccount = catchErrors(async (_req, res) => {
   const user = await createAccount();
-  res.respond({
+  res.send({
     authToken: signToken({ sub: user.id }),
   });
 });

@@ -7,7 +7,7 @@ export const getProjectWithUsersAndIssues = catchErrors(async (req, res) => {
   const project = await findEntityOrThrow(Project, req.currentUser.projectId, {
     relations: ['users', 'issues'],
   });
-  res.respond({
+  res.send({
     project: {
       ...project,
       issues: project.issues.map(issuePartial),
